@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+<title>My Angular App</title>
+<link rel="stylesheet" type="text/css" href="./app.css" />
+</head>
+<body ng-controller="AppCtrl">
+
+<nav class="nav">
+  <select ng-model="date.month">
+    <option ng-repeat="month in months" value="{{ $index }}" ng-seleced="$index == date.month">{{ month }}</option>
+  </select>
+  <select ng-model="date.year">
+    <option ng-repeat="year in years" value="{{ year }}" ng-selected="year == date.year">{{ year }}</option>
+  </select>
+</nav>
+
+<div my-calendar="currentDate" ng-class="{outer: !isCurrentMonth(day.date)}">
+  {{ day.date.getDate() }}
+</div>
+
+<script type="text/javascript" src="https://code.angularjs.org/1.3.0-beta.9/angular.js"></script>
+<script type="text/javascript" src="./calendar-range.js"></script>
+<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>
